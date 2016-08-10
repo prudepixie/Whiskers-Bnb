@@ -4,7 +4,7 @@ class HostsController < ApplicationController
   # GET /hosts
   # GET /hosts.json
   def index
-    @hosts = Host.all
+    render json: Host.all
   end
 
   # GET /hosts/1
@@ -25,16 +25,7 @@ class HostsController < ApplicationController
   # POST /hosts.json
   def create
     @host = Host.new(host_params)
-
-    respond_to do |format|
-      if @host.save
-        format.html { redirect_to @host, notice: 'Host was successfully created.' }
-        format.json { render :show, status: :created, location: @host }
-      else
-        format.html { render :new }
-        format.json { render json: @host.errors, status: :unprocessable_entity }
-      end
-    end
+    render json: @host
   end
 
   # PATCH/PUT /hosts/1
