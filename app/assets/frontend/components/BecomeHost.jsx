@@ -9,8 +9,10 @@ export default class BecomeHost extends React.Component {
 
     this.state = {
       hostsList: [],
-      firstName: '',
-      email: ''
+      first_name: '',
+      last_name: '',
+      email: '',
+      availability: []
      };
   }
 
