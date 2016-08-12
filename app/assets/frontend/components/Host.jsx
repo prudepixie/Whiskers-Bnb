@@ -5,8 +5,7 @@ export default class Host extends React.Component {
     return(
       <div >
         <li >
-          {this.props.first_name}
-          {this.props.email}
+          {this.props.first_name}, {this.props.email}
         </li>
       </div>
     )

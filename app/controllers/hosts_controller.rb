@@ -1,10 +1,9 @@
 class HostsController < ApplicationController
   before_action :set_host, only: [:show, :edit, :update, :destroy]
-
   # GET /hosts
   # GET /hosts.json
   def index
-    render json: Host.all
+    render json: Host.all.order('created_at DESC')
   end
 
   # GET /hosts/1
@@ -25,7 +24,12 @@ class HostsController < ApplicationController
   # POST /hosts.json
   def create
     @host = Host.new(host_params)
-    render json: @host
+
+    respond_to do |format|
+      if @host.save
+        format.json { render json: @host }
+      end
+    end
   end
 
   # PATCH/PUT /hosts/1

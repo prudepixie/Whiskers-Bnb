@@ -7,9 +7,6 @@ module.exports = {
     resolve: {
       extensions: ['', '.js','.jsx']
     },
-    externals: {
-      'react': 'React'
-    },
     module: {
         loaders: [
             { test: /\.jsx$/, loader: "babel", query:{presets:['react', 'es2015']} }

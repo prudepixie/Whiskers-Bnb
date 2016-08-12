@@ -1,41 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Index from './components/Index';
+import BecomeHost from './components/BecomeHost';
 
-import HostsList from './components/HostsList'
+import { Router, Route, Link } from 'react-router';
+import { hashHistory } from 'react-router';
 
-class Main extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hostsList: [] };
-  }
-
-  // addHost(hostToAdd) {
-  //   let newHostsList = this.state.hostsList;
-  //   newHostsList.unshift({ id: Date.now, first_name: 'Guest', email: hostToAdd });
-  //
-  //   this.setState({ hostsList: newHostsList });
-  // }
-
-  componentDidMount() {
-    $.ajax("/hosts")
-    .success(data => this.setState({ hostsList: data }))
-    .error(error => console.log(error))
-  }
-
+class App extends React.Component {
   render() {
     return (
       <div>
-        <HostsList hosts={this.state.hostsList} />
+        {this.props.children}
       </div>
     );
   }
 }
 
 let documentReady = () => {
-  ReactDOM.render (
-    <Main />,
-    document.getElementById('react')
-  )
-}
+  ReactDOM.render(
+    <Router history={hashHistory}>
+      <Route component={App}>
+        <Route path="/become-host" component={BecomeHost} />
+        <Route path="/" component={Index} />
+      </Route>
+    </Router>
+    , document.getElementById('react')
+  );
+};
 
 $(documentReady);
