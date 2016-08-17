@@ -85,8 +85,8 @@ export default class BecomeHost extends React.Component {
        </TabPanel>
        <TabPanel>
          <h2>My Cat Tree</h2>
-         <CatTreeForm onHostSubmit={this.handleHostSubmit.bind(this)} />
-         <button type="submit">Submit</button>
+         <CatTreeForm  />
+         <button onHostSubmit={this.handleHostSubmit.bind(this)} type="submit">Submit</button>
        </TabPanel>
       </Tabs>
         <HostsList hosts={this.state.hostsList} />
