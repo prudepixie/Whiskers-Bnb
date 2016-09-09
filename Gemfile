@@ -19,6 +19,8 @@ gem 'coffee-rails', '~> 4.2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'react-rails'
+gem 'responders'
 gem 'devise'
 gem 'cancan'
 gem 'role_model'

@@ -21,6 +21,13 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def hosts
+    @hosts = User.hosts
+    respond_to do |format|
+      format.html
+      format.json 
+    end
+  end
   # POST /users
   # POST /users.json
   def create
