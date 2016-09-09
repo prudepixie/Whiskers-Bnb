@@ -11,17 +11,29 @@ export default class Hosts extends React.Component {
   }
 
   componentWillMount(){
-    $.get('/hosts', function(data){
+    $.getJSON('/hosts.json', (data) => {
       console.log('hosts HEREERERER');
       console.log(data);
+      this.setState({
+        hosts: data
+      })
     })
   }
 
   render() {
-    return (
-      <div>
-        Hello
-      </div>
+    var hosts = this.state.hosts.map((host) => {
+      return (
+        <div key={host.id} className="panel panel-default">
+          <div>
+            <h3>{host.first_name}</h3>
+            <p>{host.email}</p>
+          </div>
+        </div>
+      )
+    });
+
+    return(
+      <div>{hosts}</div>
     )
   }
 }

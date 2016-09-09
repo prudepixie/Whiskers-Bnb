@@ -22,10 +22,10 @@ class UsersController < ApplicationController
   end
 
   def hosts
-    @hosts = User.hosts
+    @hosts = User.host
     respond_to do |format|
       format.html
-      format.json 
+      format.json { render json: @hosts, status: 200 }
     end
   end
   # POST /users
