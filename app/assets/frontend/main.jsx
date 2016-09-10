@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import Reservations from './reservations';
 import Hosts from './hosts';
-import Bootstrap from 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css'
 
 let documentReady = () => {
   ReactDOM.render(

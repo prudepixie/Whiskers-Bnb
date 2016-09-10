@@ -23,12 +23,20 @@ export default class Hosts extends React.Component {
   render() {
     var hosts = this.state.hosts.map((host) => {
       return (
-        <div key={host.id} className="panel panel-default">
-          <div>
-            <h3>{host.first_name}</h3>
-            <p>{host.email}</p>
-          </div>
-        </div>
+        <section className="col-lg-6">
+            <div key={host.id} className="panel panel-default">
+              <a href={"/users/"+ host.id}>
+                <div className="panel-heading">
+                  <h3>{host.first_name} {host.last_name}</h3>
+                </div>
+              </a>
+              <div className="panel-body">
+                <p>{host.email}</p>
+                <p>{host.city}</p>
+                <p>{host.summary}</p>
+              </div>
+            </div>
+        </section>
       )
     });
 
