@@ -1,0 +1,19 @@
+whiskers-bnb@1.0.0 /Users/Wendy/Code/whiskers-bnb
+├── moment@2.14.1 
+├── react@15.3.1 
+├── react-addons-shallow-compare@15.3.1 
+├─┬ react-dates@2.1.1 
+│ ├─┬ array-includes@3.0.2 
+│ │ ├─┬ define-properties@1.1.2 
+│ │ │ ├── foreach@2.0.5 
+│ │ │ └── object-keys@1.0.11 
+│ │ └─┬ es-abstract@1.6.1 
+│ │   ├─┬ es-to-primitive@1.1.1 
+│ │   │ ├── is-date-object@1.0.1 
+│ │   │ └── is-symbol@1.0.1 
+│ │   ├── is-callable@1.1.3 
+│ │   └── is-regex@1.0.3 
+│ ├── react-moment-proptypes@1.2.0 
+│ └── react-portal@2.2.1 
+└── react-dom@15.3.1 
+

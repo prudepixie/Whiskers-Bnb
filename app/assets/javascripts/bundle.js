@@ -64,13 +64,6 @@
 	__webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ 173);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// import Reservations from './reservations';
-	var documentReady = function documentReady() {
-	  _reactDom2.default.render(_react2.default.createElement(_hosts2.default, null), document.getElementById('hosts'));
-	};
-	
-	$(documentReady);
 
 /***/ },
 /* 1 */
@@ -22020,10 +22013,10 @@
 	      var hosts = this.state.hosts.map(function (host) {
 	        return _react2.default.createElement(
 	          'section',
-	          { className: 'col-lg-6' },
+	          { key: host.id, className: 'col-lg-6' },
 	          _react2.default.createElement(
 	            'div',
-	            { key: host.id, className: 'panel panel-default' },
+	            { className: 'panel panel-default' },
 	            _react2.default.createElement(
 	              'a',
 	              { href: "/users/" + host.id },
