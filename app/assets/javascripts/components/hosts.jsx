@@ -1,7 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-export default class Hosts extends React.Component {
+class Hosts extends React.Component {
 
   constructor() {
     super();
@@ -23,7 +20,7 @@ export default class Hosts extends React.Component {
   render() {
     var hosts = this.state.hosts.map((host) => {
       return (
-        <section key={host.id} className="col-lg-6">
+        <section key={host.id} className="col-md-6">
             <div className="panel panel-default">
               <a href={"/users/"+ host.id}>
                 <div className="panel-heading">

@@ -20,6 +20,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 
 gem 'react-rails'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 gem 'responders'
 gem 'devise'
 gem 'cancan'
