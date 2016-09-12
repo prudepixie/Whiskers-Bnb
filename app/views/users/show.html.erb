@@ -30,8 +30,7 @@
   <%= @user.address %>
 </p>
 
-<div id="date-picker"></div>
-
+<%= react_component('Calendar') %>
 <% if current_user == @user %>
   <%= link_to 'Edit', edit_user_path(@user) %> |
 <% end %>
