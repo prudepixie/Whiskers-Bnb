@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require react
 //= require react_ujs
-
 //= require components
 //= require bootstrap/dist/js/bootstrap
 //= require react-bootstrap/dist/react-bootstrap

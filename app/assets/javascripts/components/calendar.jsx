@@ -1,4 +1,4 @@
-import DateRangePicker from '../node_modules/react-dates/src/components/DateRangePicker';
+import React from 'react';
 
 class Calendar extends React.Component {
   constructor(props) {
