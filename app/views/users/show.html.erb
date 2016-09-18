@@ -30,9 +30,11 @@
   <%= @user.address %>
 </p>
 
-<%= react_component('Calendar') %>
+<div id="reservations"></div>
+
 
 <% if current_user == @user %>
   <%= link_to 'Edit', edit_user_path(@user) %> |
+  <div id="open-modal"></div>
 <% end %>
 <%= link_to 'Back', root_path %>

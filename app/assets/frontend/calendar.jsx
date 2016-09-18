@@ -1,6 +1,4 @@
-import React from 'react';
-
-class Calendar extends React.Component {
+export default class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,14 +23,7 @@ class Calendar extends React.Component {
     const { focusedInput, startDate, endDate } = this.state;
     return (
       <div>
-        <DateRangePicker
-          {...this.props}
-          onDatesChange={this.onDatesChange}
-          onFocusChange={this.onFocusChange}
-          focusedInput={focusedInput}
-          startDate={startDate}
-          endDate={endDate}
-        />
+        hello
       </div>
     );
   }

@@ -1,4 +1,4 @@
-class Hosts extends React.Component {
+export default class Hosts extends React.Component {
 
   constructor() {
     super();
@@ -9,8 +9,6 @@ class Hosts extends React.Component {
 
   componentWillMount(){
     $.getJSON('/hosts.json', (data) => {
-      console.log('hosts HEREERERER');
-      console.log(data);
       this.setState({
         hosts: data
       })
@@ -42,3 +40,11 @@ class Hosts extends React.Component {
     )
   }
 }
+
+let documentReady = () => {
+  ReactDOM.render(
+    <Hosts />, document.getElementById('hosts')
+    );
+};
+
+$(documentReady);
