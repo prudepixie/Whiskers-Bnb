@@ -1,4 +1,4 @@
-export default class Hosts extends React.Component {
+class Hosts extends React.Component {
 
   constructor() {
     super();

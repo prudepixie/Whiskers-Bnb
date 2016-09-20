@@ -1,4 +1,4 @@
-export default class NewReservationForm extends React.Component {
+class NewReservationForm extends React.Component {
   render() {
     return (
       <div>
@@ -18,3 +18,5 @@ export default class NewReservationForm extends React.Component {
     )
   }
 }
+
+module.exports = NewReservationForm

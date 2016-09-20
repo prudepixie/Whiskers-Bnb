@@ -10,6 +10,12 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @reservations = current_user.reservations
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @reservations }
+    end
   end
 
   # GET /users/new

@@ -12,8 +12,4 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require react
-//= require react_ujs
 //= require bootstrap/dist/js/bootstrap
-//= require react-bootstrap/dist/react-bootstrap
-//= require_tree .

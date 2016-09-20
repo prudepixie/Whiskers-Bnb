@@ -1,9 +1,25 @@
-import NewReservationForm from './NewReservationForm';
+var NewReservationForm = require('./NewReservationForm.jsx');
 
-export default class OpenModal extends React.Component {
+class OpenModal extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+
+    }
+  }
 
   handleClick() {
-    console.log('hello');
+    var userId = $('#user-id').text();
+    var beginning_date = this.refs.beginning_date.value;
+    var ending_date = this.refs.ending_date.value;
+    var rate = this.refs.rate.value;
+    $.post(`/users/${userId}.json`, () => {
+      console.log('reservation');
+      this.setState({
+        new_reservation: { beginning_date: beginning_date } 
+      })
+    })
   }
   render() {
     return (
@@ -22,7 +38,18 @@ export default class OpenModal extends React.Component {
                 <h4 className="modal-title" id="myModalLabel">New Reservation</h4>
               </div>
               <div className="modal-body">
-                <NewReservationForm />
+                  <p>
+                    <input type="date" ref="beginning_date" />
+                  </p>
+                  <p>
+                    <input type="date" ref="ending_date"/>
+                  </p>
+                  <p>
+                    <input type="number" ref="rate" placeholder="Enter Your rate" />
+                  </p>
+                  <p>
+                    <input ref="host_id" placeholder="Host Id" />
+                  </p>
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
