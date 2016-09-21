@@ -11,7 +11,9 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.precompile += [
-  'components/Reservations.js',
+  'components/ReservationsList.js',
   'components/OpenModal.js',
-  'components/Hosts.js'
+  'components/Hosts.js',
+  'components/NewReservationForm.js',
+  'components/Reservation.js'
 ]
