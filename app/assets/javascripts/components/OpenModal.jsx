@@ -9,7 +9,6 @@ class OpenModal extends React.Component {
     }
   }
 
-
   loadReservationsFromServer() {
     var userId = $('#user-id').text();
     $.getJSON(`/users/${userId}.json`, (data) => {
@@ -19,10 +18,6 @@ class OpenModal extends React.Component {
 
   handleReservationSubmit(reservation) {
     var userId = $('#user-id').text();
-    var reservations = this.state.reservations;
-    var newReservation = reservations.concat([reservation]);
-
-    this.setState({reservations: newReservation});
 
     $.ajax({
       url: '/reservations.json',
@@ -30,15 +25,12 @@ class OpenModal extends React.Component {
       data: { reservation: reservation },
       success: (reservation) => {
         console.log('it worked!', reservation);
-        $('#myModal').modal('hide')
+        $('#myModal').modal('hide');
+        $('.modal-body input').val('');
       }
     });
 
     this.props.onReservationSubmit(reservation)
-  }
-
-  componentDidMount() {
-    this.loadReservationsFromServer();
   }
 
 
