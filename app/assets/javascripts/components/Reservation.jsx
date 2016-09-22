@@ -22,6 +22,24 @@ class Reservation extends React.Component {
     this.setState({reservations: newReservation});
   }
 
+  handleDelete(id) {
+    $.ajax({
+      url: `/reservations/${id}.json`,
+      type: 'DELETE',
+      success: () => {
+        console.log('succesfully removed reservation');
+        this.removeReservationClient(id);
+      }
+    })
+  }
+
+  removeReservationClient(id) {
+    var newReservations = this.state.reservations.filter((reservation) => {
+      return reservation.id != id
+    });
+
+    this.setState({reservations: newReservations});
+  }
 
   componentDidMount() {
     this.loadReservationsFromServer();
@@ -30,7 +48,7 @@ class Reservation extends React.Component {
   render() {
     return (
       <div>
-        <ReservationsList data={this.state.reservations}/>
+        <ReservationsList reservations={this.state.reservations} handleDelete={this.handleDelete}/>
         <OpenModal onReservationSubmit={this.getNewReservation.bind(this)}/>
       </div>
     )
