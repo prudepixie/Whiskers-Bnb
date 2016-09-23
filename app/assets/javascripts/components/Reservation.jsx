@@ -8,10 +8,9 @@ class Reservation extends React.Component {
       reservations: []
     }
   }
-
   loadReservationsFromServer() {
-    var userId = $('#user-id').text();
-    $.getJSON(`/users/${userId}.json`, (data) => {
+    var hostId = $('#host-id').text();
+    $.getJSON(`/users/${hostId}.json`, (data) => {
       this.setState({reservations: data})
     })
   }

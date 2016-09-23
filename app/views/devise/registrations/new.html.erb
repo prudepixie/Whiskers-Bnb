@@ -51,11 +51,11 @@
     <%= f.text_field :address %>
   </div>
 
-  <%= f.text_field :roles, value: 'host' %>
+  <%= f.text_field :roles, value: params["role"] %>
 
-
+  <%= params["role"] %>
   <div class="actions">
-    <%= f.submit "Sign Up as Host" %>
+    <%= f.submit "Sign Up" %>
   </div>
 <% end %>
 

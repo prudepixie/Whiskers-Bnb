@@ -30,8 +30,13 @@
   <%= @user.address %>
 </p>
 
+<% if @user.guest? %>
+  I"M A GEUST
+<% end %>
 <div id="reservation"></div>
-<div class="hide" id="user-id"><%= current_user.id %></div>
+<div id="user-id"><%= current_user.id %></div>
+<div id="host-id"><%= @user.id %></div>
+
 
 <% if current_user == @user %>
   <%= link_to 'Edit', edit_user_path(@user) %> |

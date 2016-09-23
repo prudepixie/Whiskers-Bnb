@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @reservations = current_user.reservations
+    @reservations = @user.reservations
 
     respond_to do |format|
       format.html { render :show }
@@ -82,6 +82,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :phone, :city, :address)
+      params.require(:user).permit(:first_name, :last_name, :email, :phone, :city, :address, :roles)
     end
 end

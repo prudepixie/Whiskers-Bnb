@@ -17,4 +17,8 @@ class User < ApplicationRecord
   def self.host
     select(&:host?)
   end
+
+  def self.guest
+    select(&:guest?)
+  end
 end
