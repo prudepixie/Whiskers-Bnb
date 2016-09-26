@@ -3,6 +3,21 @@ class ReservationsList extends React.Component {
     this.props.handleDelete(id);
   }
 
+  handleBookingSubmit(id) {
+    var userId = $('#user-id').text();
+
+    $.ajax({
+      url: `/users/${userId}/bookings.json`,
+      type: 'POST',
+      data: { booking: {guest_id: userId} },
+      success: (booking) => {
+        console.log('Save new booking', booking);
+        alert('Saved new booking');
+      }
+    });
+
+  }
+
   render() {
     var hostId = $('#host-id').text();
     var userId = $('#user-id').text();
@@ -10,7 +25,7 @@ class ReservationsList extends React.Component {
     if (hostId == userId) {
       action = <button className="btn btn-default" onClick={this.handleDelete.bind(this, reservation.id)}>Delete</button>;
     } else {
-      action = <button className="btn btn-default">Book</button>
+      action = <button className="btn btn-default" onClick={this.handleBookingSubmit.bind(this, reservation.id)}>Book</button>
     }
     var reservations= this.props.reservations.map((reservation) => {
       return (

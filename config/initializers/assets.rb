@@ -15,5 +15,6 @@ Rails.application.config.assets.precompile += [
   'components/OpenModal.js',
   'components/Hosts.js',
   'components/NewReservationForm.js',
-  'components/Reservation.js'
+  'components/Reservation.js',
+  'components/Booking.js'
 ]

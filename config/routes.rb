@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "users/registrations" }
   resources :reservations
 
-  resources :users
+  resources :users do
+    resources :bookings
+  end
+
   get '/hosts', to: 'users#hosts'
-  get '/reservations', to: 'reservations#index'
+  # get '/reservations', to: 'reservations#index'
 end

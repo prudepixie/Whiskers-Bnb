@@ -32,8 +32,10 @@
 
 <% if @user.guest? %>
   I"M A GEUST
+  <div id="bookings"></div>
+<% else %>
+  <div id="reservation"></div>
 <% end %>
-<div id="reservation"></div>
 <div id="user-id"><%= current_user.id %></div>
 <div id="host-id"><%= @user.id %></div>
 
@@ -44,3 +46,4 @@
 <%= link_to 'Back', root_path %>
 
 <%= javascript_include_tag 'components/Reservation.js'%>
+<%= javascript_include_tag 'components/Booking.js'%>

@@ -13,6 +13,7 @@ class User < ApplicationRecord
   roles :host, :guest
   has_many :reservations, foreign_key: 'guest_id'
   has_many :reservations, foreign_key: 'host_id'
+  has_many :bookings, foreign_key: 'guest_id'
 
   def self.host
     select(&:host?)
