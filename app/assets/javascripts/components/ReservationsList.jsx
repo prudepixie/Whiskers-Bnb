@@ -16,7 +16,6 @@ class ReservationsList extends React.Component {
       data: { booking: {guest_id: userId, reservation: reservation} },
       success: (data) => {
         console.log('Save new booking', reservation);
-        setBookingId(reservation)
       }
     });
 
