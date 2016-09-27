@@ -16,5 +16,6 @@ Rails.application.config.assets.precompile += [
   'components/Hosts.js',
   'components/NewReservationForm.js',
   'components/Reservation.js',
+  'components/ReservationButton.js',
   'components/Booking.js'
 ]

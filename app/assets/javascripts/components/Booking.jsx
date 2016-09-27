@@ -7,9 +7,14 @@ class Booking extends React.Component {
   }
   loadBookingsFromServer() {
     var userId = $('#user-id').text();
-    $.getJSON(`/users/${userId}/bookings.json`, (data) => {
-      this.setState({bookings: data})
-    })
+
+    $.ajax({
+      url: `/users/${userId}/bookings.json`,
+      type: 'GET',
+      success: (data) => {
+        this.setState({bookings: data})
+      }
+    });
   }
   componentDidMount() {
     this.loadBookingsFromServer();
@@ -19,25 +24,18 @@ class Booking extends React.Component {
     var bookings = this.state.bookings.map((booking) => {
       return (
         <div key ={booking.id}>
-          <h6>{booking.guest_id}</h6>
-          <p>{booking.created_at}</p>
+          <h6>Booking #{booking.id}</h6>
+          <p>Reservation Id: {booking.reservation_id}</p>
         </div>
       )
     });
     return (
       <div>
-        <h6>List of My Bookings</h6>
+        <h6>Manage My Bookings</h6>
         {bookings}
       </div>
     )
   }
 }
 
-let documentReady = () => {
-  ReactDOM.render(
-    <Booking />, document.getElementById('bookings')
-    );
-};
-
-
-$(documentReady);
+module.exports = Booking;

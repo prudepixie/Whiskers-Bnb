@@ -10,13 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160925215631) do
+ActiveRecord::Schema.define(version: 20160927204210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "guest_id"
+    t.integer  "guest_id"
+    t.integer  "reservation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "hosts", force: :cascade do |t|
+    t.integer  "rate"
+    t.text     "amenities"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -26,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160925215631) do
     t.integer  "rate"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "booking_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,7 +64,6 @@ ActiveRecord::Schema.define(version: 20160925215631) do
     t.text     "house_rules"
     t.boolean  "tree"
     t.boolean  "toys"
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 

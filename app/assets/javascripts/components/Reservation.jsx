@@ -1,5 +1,6 @@
 var ReservationsList = require('./ReservationsList.jsx');
 var OpenModal = require('./OpenModal.jsx');
+var Booking = require('./Booking.jsx');
 
 class Reservation extends React.Component {
   constructor() {
@@ -41,10 +42,29 @@ class Reservation extends React.Component {
   }
 
   render() {
+    var userId = $('#user-id').text();
+    var hostId = $('#host-id').text();
+    var guestId = $('#guest-id').text();
+
+    var displayList;
+    var showModal = <OpenModal onReservationSubmit={this.getNewReservation.bind(this)}/>;
+
+    if (userId === hostId) {
+      console.log('host area');
+      displayList = <ReservationsList reservations={this.state.reservations} handleDelete={this.handleDelete.bind(this)}/>;
+    } else if (userId === guestId) {
+      console.log('guest area');
+      displayList = <Booking />
+      showModal = false;
+    } else {
+      console.log('Guest visiting Host reservations/ not logged in ');
+      displayList = <ReservationsList reservations={this.state.reservations} handleDelete={this.handleDelete.bind(this)}/>;
+      showModal = false;
+    }
     return (
       <div>
-        <ReservationsList reservations={this.state.reservations} handleDelete={this.handleDelete.bind(this)}/>
-        <OpenModal onReservationSubmit={this.getNewReservation.bind(this)}/>
+        {displayList}
+        {showModal}
       </div>
     )
   }
