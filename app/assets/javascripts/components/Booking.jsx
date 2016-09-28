@@ -41,7 +41,7 @@ class Booking extends React.Component {
     var bookings = this.state.bookings.map((booking) => {
       return (
         <div key ={booking.id}>
-          <h6>Booking #{booking.id}</h6>
+          <h6>Booking Id: {booking.id}</h6>
           <p>Reservation Id: {booking.reservation_id}</p>
           <button onClick={this.handleDelete.bind(this, booking.id)} className="btn btn-default">Delete</button>
         </div>

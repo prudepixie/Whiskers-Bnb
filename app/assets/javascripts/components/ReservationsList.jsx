@@ -6,46 +6,37 @@ class ReservationsList extends React.Component {
     this.props.handleDelete(id);
   }
 
-  handleBookingSubmit(reservation) {
+  handleBookingSubmit(reservation, index) {
     var userId = $('#user-id').text();
-
 
     $.ajax({
       url: `/users/${userId}/bookings.json`,
       type: 'POST',
-      data: { booking: {guest_id: userId, reservation: reservation} },
-      success: (data) => {
-        console.log('Save new booking', reservation);
+      data: { booking: {guest_id: userId, reservation_id: reservation.id} },
+      success: (newBooking) => {
+        console.log('Save new booking');
+        this.props.reservations[index].booking_id = newBooking.id;
       }
     });
 
-
   }
 
-  setBookingId(reservation) {
-    $.ajax({
-      url: `/reservations/${reservation.id}.json`,
-      type: 'GET',
-      success: (data) => {
-        console.log(data);
-      }
-    });
-  }
 
   render() {
     var hostId = $('#host-id').text();
     var userId = $('#user-id').text();
     var action;
 
-    var reservations= this.props.reservations.map((reservation) => {
+    var reservations= this.props.reservations.map((reservation, index) => {
       if (hostId == userId) {
         action = <button className="btn btn-default" onClick={this.handleDelete.bind(this, reservation.id)}>Delete</button>;
         } else {
-          action = <button className="btn btn-default" onClick={this.handleBookingSubmit.bind(this, reservation)}>Book</button>
+          action = <button className="btn btn-default" onClick={this.handleBookingSubmit.bind(this, reservation, index)}>{ reservation.booking_id ? 'Booked' : 'Book'}</button>
         }
       return (
         <div key={reservation.id}>
           <ul>
+            <li>Reservation ID: {reservation.id}</li>
             <li>{reservation.beginning_date}</li>
             <li>{reservation.ending_date}</li>
             <li>{reservation.host_id}</li>

@@ -32,8 +32,10 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
+        reservation = Reservation.find(@booking.reservation_id)
+        reservation.update(booking_id: @booking.id)
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
-        format.json { render json: @bookings, status: :created}
+        format.json { render json: @booking, status: :created}
       else
         format.html { render :new }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
